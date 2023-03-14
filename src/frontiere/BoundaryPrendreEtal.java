@@ -18,14 +18,23 @@ public class BoundaryPrendreEtal {
 			verifOK.append("Bonjour ");
 			verifOK.append(nomVendeur);
 			verifOK.append(" je vais regarder si je peux vous trouver un étal.");
-			if(controlPrendreEtal.resteEtals()) {
-				installerVendeur(nomVendeur);			
+			System.out.println(verifOK.toString());
+						
+			if (controlPrendreEtal.dejaInstalle(nomVendeur)) {
+				StringBuilder deso1 = new StringBuilder();
+				deso1.append("Désolée ");
+				deso1.append(nomVendeur);
+				deso1.append(" vous occupé deja un étal.");
+				System.out.println(deso1.toString());
+				
+			} else if(controlPrendreEtal.resteEtals()) {
+				installerVendeur(nomVendeur);
 			} else {
 				StringBuilder deso = new StringBuilder();
 				deso.append("Désolée ");
 				deso.append(nomVendeur);
 				deso.append(" je n'ai plus d'étal qui ne soit pas déjà occupé");
-				deso.toString();
+				System.out.println(deso.toString());
 			}
 			
 		} else {
@@ -33,6 +42,7 @@ public class BoundaryPrendreEtal {
 			verifNO.append("Je suis désolée ");
 			verifNO.append(nomVendeur);
 			verifNO.append(" vous n'appartenez pas au village.");
+			System.out.println(verifNO.toString());
 		}
 	}
 
@@ -53,7 +63,7 @@ public class BoundaryPrendreEtal {
 			prendreString.append(nomVendeur);
 			prendreString.append(" s'est installé à l'étal");
 			prendreString.append(numeroEtal);
-			prendreString.toString();
+			System.out.println(prendreString.toString());
 		}
 	}
 }

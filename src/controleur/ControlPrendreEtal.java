@@ -13,8 +13,11 @@ public class ControlPrendreEtal {
 	}
 
 	public boolean resteEtals() {
-		
-		return false;
+		return village.rechercherEtalVide();
+	}
+	
+	public boolean dejaInstalle(String vendeur) {
+		return village.rechercherEtal(village.trouverHabitant(vendeur)) != null;
 	}
 
 	public int prendreEtal(String nomVendeur, String produit, int nbProduit) {
